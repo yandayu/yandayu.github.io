@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>[原]Es6 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="let声明变量  声明不会提升 不能重复声明（当前作用域下不能有相同变量名），会报错 变量会捆绑在当前的语句块中，也就是说只在当前块级作用域下生效  const声明常量  声明不会提升 不能重复声明，会报错 在声明常量时，必须要赋值，否则会报错 一经赋值不可修改  函数参数的默认值 function(color = ‘red’){} red为color的默认值 箭头函数 var max = fun">
+<meta name="keywords" content="-css3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]Es6">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/原-Es6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="let声明变量  声明不会提升 不能重复声明（当前作用域下不能有相同变量名），会报错 变量会捆绑在当前的语句块中，也就是说只在当前块级作用域下生效  const声明常量  声明不会提升 不能重复声明，会报错 在声明常量时，必须要赋值，否则会报错 一经赋值不可修改  函数参数的默认值 function(color = ‘red’){} red为color的默认值 箭头函数 var max = fun">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-03T09:50:31.284Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]Es6">
+<meta name="twitter:description" content="let声明变量  声明不会提升 不能重复声明（当前作用域下不能有相同变量名），会报错 变量会捆绑在当前的语句块中，也就是说只在当前块级作用域下生效  const声明常量  声明不会提升 不能重复声明，会报错 在声明常量时，必须要赋值，否则会报错 一经赋值不可修改  函数参数的默认值 function(color = ‘red’){} red为color的默认值 箭头函数 var max = fun">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-原-Es6" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/02/原-Es6/" class="article-date">
+  <time datetime="2019-01-02T13:23:51.000Z" itemprop="datePublished">2019-01-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端笔记/">-前端笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [原]Es6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>let声明变量</strong></p>
+<ol>
+<li>声明不会提升</li>
+<li>不能重复声明（当前作用域下不能有相同变量名），会报错</li>
+<li>变量会捆绑在当前的语句块中，也就是说只在当前块级作用域下生效</li>
+</ol>
+<p><strong>const声明常量</strong></p>
+<ol>
+<li>声明不会提升</li>
+<li>不能重复声明，会报错</li>
+<li>在声明常量时，必须要赋值，否则会报错</li>
+<li>一经赋值不可修改</li>
+</ol>
+<p><strong>函数参数的默认值</strong></p>
+<p><code>function(color = ‘red’){}</code></p>
+<p>red为color的默认值</p>
+<p><strong>箭头函数</strong></p>
+<p><code>var max = function(){}</code></p>
+<p><code>var max = () =&gt; {}</code>    这行代码等价与上面的代码</p>
+<p>当代码简洁时，可以把大括号去掉简写为一行</p>
+<p>eg：<code>var max = (x,y) =&gt; x&gt;y?x:y;</code></p>
+<p>=&gt; 后面的代码为return的值，但不能写return</p>
+<p>如果函数的参数不止一个或没有，要用小括号包着，如果只有一个参数，可以省略括号。</p>
+<p>箭头函数中没有this，如果使用this是指向window的</p>
+<p><strong>剩余操作符 …</strong></p>
+<p>我们可以在形参名前加上…来让它接受剩余的参数，当不确定实参个数时，这是个很好的选择。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a,b,…others</span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//a=1,b=2,others就等于一个数组，里面包含所有剩下的实参，也就是[3,4,5,6,7]</span></span><br></pre></td></tr></table></figure>
+<p><strong>展开操作符…</strong></p>
+<p>我们可以在数组名前加上展开操作符，那么他就会显示数组中的各个元素</p>
+<p>eg:  <code>let arr1 = [1,2,3]     console.log(…arr1)</code></p>
+<p>控制台会打印1,2,3</p>
+<p>我们也可以使用这个操作符来复制/合并数组</p>
+<p>复制：let arr2 = […arr1]</p>
+<p>合并：let arr2 = […arr1,4,5]</p>
+<p><strong>模板字面量</strong></p>
+<p>使用模板字面量来定义字符串，可以使用${}在字符串中插入内容，在括号中可写变量或表达式</p>
+<p>并且在模板字面量中换行，会保留格式，换行和tab键都会放在字符串中</p>
+<p><code>var str = `</code> `</p>
+<p><strong>对象的属性简写</strong></p>
+<p>当属性值和属性名相同时，可简写为一个变量名<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'李四'</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; </span><br><span class="line">name</span><br><span class="line"><span class="comment">//这里的name值为李四</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>数组解构</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors=  [ <span class="string">'red'</span>,<span class="string">'green'</span>,<span class="string">'blue'</span>];</span><br><span class="line"><span class="keyword">let</span> [firstC,secC,thirdC] = colors;</span><br><span class="line"><span class="comment">// 上面的变量的值按顺序依次为数组中的颜色</span></span><br></pre></td></tr></table></figure></p>
+<p>当为变量重新赋值时，只需将let 去掉即可。</p>
+<p>为变量设置默认值，与函数形参默认值方法相同。</p>
+<p><strong>嵌套数组解构</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors=  [ <span class="string">'red'</span>,<span class="string">'green'</span>,<span class="string">'blue'</span>,[<span class="string">'violet'</span>,<span class="string">'white'</span>]];</span><br><span class="line"><span class="keyword">let</span> [firstC,secC,thirdC,[,lastC]] = colors;</span><br></pre></td></tr></table></figure></p>
+<p><strong>对象解构</strong><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1= &#123;<span class="attr">name</span>:<span class="string">'lisi'</span>,<span class="attr">age</span>:<span class="number">20</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;name,age&#125; = obj1;</span><br></pre></td></tr></table></figure></p>
+<p>与数组解构不同的是,上面这种方法只能当变量名和对象的属性名相同使可以使用，如果要为非同名的变量赋值，要写为以下的方式<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:myName,<span class="attr">age</span>:myAge&#125; = obj1;</span><br></pre></td></tr></table></figure></p>
+<p>前面的是对象中的属性名，后面的为我们设置的变量名，相当于为变量指明要从哪里找值。</p>
+<p>默认值：与函数形参的默认值的传值方式相同</p>
+<p>为变量重新赋值：因为JavaScript不允许赋值操作符左边出现花括号，所以我们要将整个赋值语句用小括号包裹起来，将赋值语句变为一个表达式。<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123;<span class="attr">name</span>:myName,<span class="attr">age</span>:myAge&#125; = obj1;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/02/原-Es6/" data-id="cjqgflr8900006octh0my577k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">-css3</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/02/转-Evevt-Loop-事件循环/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[转]Evevt Loop 事件循环</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/02/原-Es6/">[原]Es6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/02/转-Evevt-Loop-事件循环/">[转]Evevt Loop 事件循环</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/原-jQuery总结/">[原]jQuery总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/08/原-jq要注意的点/">[原]jq要注意的点</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/原-关于属性/">[原]关于属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

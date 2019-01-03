@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>[原]jq要注意的点 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="查找下标JQ对象查找指定下标的方法为：eq() get()方法也是查找指定下标的，但返回的是dom元素 eg:今天写一个导航条绑定鼠标进入事件时播放指定音乐，因为JQ中没有封装audio 和 video 的方法，所以play的方法要绑定在DOM元素，这时如果要是使用eq的话就不对了。 一个报错 但是这时报错了Uncaught (in promise) DOMException: play() fa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]jq要注意的点">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/原-jq要注意的点/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="查找下标JQ对象查找指定下标的方法为：eq() get()方法也是查找指定下标的，但返回的是dom元素 eg:今天写一个导航条绑定鼠标进入事件时播放指定音乐，因为JQ中没有封装audio 和 video 的方法，所以play的方法要绑定在DOM元素，这时如果要是使用eq的话就不对了。 一个报错 但是这时报错了Uncaught (in promise) DOMException: play() fa">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-03T09:49:16.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]jq要注意的点">
+<meta name="twitter:description" content="查找下标JQ对象查找指定下标的方法为：eq() get()方法也是查找指定下标的，但返回的是dom元素 eg:今天写一个导航条绑定鼠标进入事件时播放指定音乐，因为JQ中没有封装audio 和 video 的方法，所以play的方法要绑定在DOM元素，这时如果要是使用eq的话就不对了。 一个报错 但是这时报错了Uncaught (in promise) DOMException: play() fa">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-原-jq要注意的点" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/08/原-jq要注意的点/" class="article-date">
+  <time datetime="2018-12-08T08:09:21.000Z" itemprop="datePublished">2018-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端笔记/">-前端笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [原]jq要注意的点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="查找下标"><a href="#查找下标" class="headerlink" title="查找下标"></a><a id="_0"></a>查找下标</h2><p>JQ对象查找指定下标的方法为：eq()</p>
+<p>get()方法也是查找指定下标的，但返回的是dom元素</p>
+<p>eg:今天写一个导航条绑定鼠标进入事件时播放指定音乐，因为JQ中没有封装audio 和 video 的方法，所以play的方法要绑定在DOM元素，这时如果要是使用eq的话就不对了。</p>
+<p><s>一个报错</s></p>
+<p>但是这时报错了<code>Uncaught (in promise) DOMException: play() failed because the user didn’t interact with the document first.</code></p>
+<p>原来在Chrome 4月份更新了版本后，autoplay政策做了更改</p>
+<p><strong>解决方法</strong>：打开 chrome://flags/#autoplay-policy</p>
+<p>把Default修改为 No user gesture is required</p>
+<h2 id="prop方法"><a href="#prop方法" class="headerlink" title="prop方法"></a><a id="prop_13"></a>prop方法</h2><p>prop()方法  是操作元素的属性</p>
+<p>attr()方法是操作标签的属性</p>
+<p>对于一些特殊的属性 eg: <code>checked, selected ,disabled</code> 这些值为布尔值的属性，无法使用attr方法设置，因为JQ对于未设置的这些特殊属性会返回undefined，所以要用prop方法</p>
+<p>用法和attr相同  eg : <code>prop(&#39;checked&#39;,&#39;true&#39;)</code></p>
+<h2 id="动画队列"><a href="#动画队列" class="headerlink" title="动画队列"></a><a id="_20"></a>动画队列</h2><p>JQ中会把动画放在一个动画队列中。如果调用多个动画，它也会按照顺序挨个执行，不会覆盖，也会把动画保存好，但同时不好的地方也出现了。如果有一个鼠标进入触发动画的函数，用户多次触发并速度很快，那么鼠标离开后 ，它仍然会执行，直到动画队列中的动画执行完。</p>
+<p><strong>解决方法</strong>：stop()方法    停止正在执行的动画</p>
+<p>在动画方法前调用此方法就可以解决动画队列的问题。</p>
+<p><code>stop(clearQueue,jumpToEnd)</code> 参数值都为布尔型</p>
+<p>clearQueue : 是否清除动画队列</p>
+<p>jumpToEnd : 是否跳转到当前动画的最终效果</p>
+<p>不传参默认都为 false。</p>
+<h2 id="index-方法"><a href="#index-方法" class="headerlink" title="index()方法"></a><a id="index_30"></a>index()方法</h2><p>JQ中的index()方法会返回当前元素在所有兄弟元素中的索引<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line"><span class="comment">//如果给a标签使用index()方法就只会显示0,要对li标签使用此方法</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a><a id="_39"></a>删除节点</h2><p>remove()和detach()都是删除节点。</p>
+<p>区别：remove方法会删除自身元素及其内容，也会删除事件监听和数据。</p>
+<p>detach方法只删除元素本身及其内容。</p>
+<p>两种方法都会保留 jQuery 对象中的匹配的元素，返回的是被选择的这个元素，所以可以在将来再使用这些匹配的元素。</p>
+<p>所以在进行大规模的增删改时我们可以先把一个元素提取出来，在此元素上面进行操作，在重新添加到页面中，就减少了对DOM的操作的修改，从而减少了页面重绘，但是这种时候最好使用detach()方法，因为此方法不会删除自身的事件及数据。</p>
+<h2 id="data方法"><a href="#data方法" class="headerlink" title="data方法"></a><a id="data_48"></a>data方法</h2><p>从1.4.3开始我们通过自定义属性给元素绑定数据，也会被自动的添加到jQuery的数据对象中，因此我们也可以通过data方法操作。</p>
+<p>获取：.data(属性名)   不传参是获取所有的</p>
+<p>设置：data(属性名：属性值)</p>
+<p>删除：removeData(属性名)</p>
+<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a><a id="_55"></a>事件委托</h2><p>我们可以使用on方式来绑定简单的事件</p>
+<p>eg：<code>$(&#39;#box&#39;).on(&#39;click&#39;,function(){})</code></p>
+<p>但是如果我们的页面中动态添加的元素不会被绑定到此事件，所以我们可以使用事件委托的方式；</p>
+<p><strong>语法</strong>：父元素.on(事件类型,事件委托的子元素，传递给处理函数的数据，事件处理函数)</p>
+<p><strong>原理</strong>：通过给父元素注册事件委托，但子元素身上其实是没有事件的。利用了事件冒泡，触发父元素事件，把事件分发给了子元素，最终还是由子元素执行的。支持动态创建添加的元素。</p>
+<p><strong>传递的数据</strong>：传递给处理函数的数据，事件触发时可以通过event.data来使用</p>
+<h2 id="克隆节点"><a href="#克隆节点" class="headerlink" title="克隆节点"></a><a id="_64"></a>克隆节点</h2><p><code>clone(true)</code>    深复制，复制自身及其子元素，并复制其事件和数据</p>
+<p><code>clone(false)</code>   浅复制，复制自身及其子元素，不复制其事件和数据</p>
+<p><code>clone(true，false)</code>   复制自身及其子元素，并复制父元素的事件和数据但不会复制子元素的事件和数据</p>
+<p>只要第一个参数为false，则无论第二个参数无论设置成什么，都为false</p>
+<h2 id="冲突"><a href="#冲突" class="headerlink" title="$冲突"></a><a id="_71"></a>$冲突</h2><p>如果我们一个页面引入多个框架，可能会导致<code>$</code>冲突的问题，默认后面会覆盖前面的，那么在jQuery拿到控制权的前提下，jQuery给我们提供了释放<code>$</code>控制权的方法。</p>
+<p><code>$.noConflict()</code>  我们可以使用一个变量来接受一下，用来代替<code>$</code></p>
+<p>在没有控制权时也可以使用jQuery来代替<code>$</code></p>
+<h2 id="制作jQuery插件"><a href="#制作jQuery插件" class="headerlink" title="制作jQuery插件"></a><a id="jQuery_77"></a>制作jQuery插件</h2><p>我们可以通过给<code>$.fn</code>添加方法开扩展jQuery对象</p>
+<p><code>$.fn</code>等价于<code>jQuery.prototype`</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/08/原-jq要注意的点/" data-id="cjqgflr8m00046octrs45zhdy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/21/原-jQuery总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [原]jQuery总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/04/原-关于属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[原]关于属性</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/02/原-Es6/">[原]Es6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/02/转-Evevt-Loop-事件循环/">[转]Evevt Loop 事件循环</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/原-jQuery总结/">[原]jQuery总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/08/原-jq要注意的点/">[原]jq要注意的点</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/原-关于属性/">[原]关于属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

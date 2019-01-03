@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>[原]自定义构造器函数 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="总结笔记自定义构造器函数相当于一个模板，需要的时候去引用它，函数内没有new和返回值，this是当前对象。 通过new的方式开创建对象，也就是实例化对象，同时对属性进行初始化 实例化对象的构造器（constructor）是指向构造函数的。所以，实例对象是通过构造器函数来创建设的，这个创建的过程教实例化。 判断这个对象是否属于这种数据类型的方式有两种： 1、通过构造器方式————&amp;gt;实例对象.c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]自定义构造器函数">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/原-自定义构造器函数/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="总结笔记自定义构造器函数相当于一个模板，需要的时候去引用它，函数内没有new和返回值，this是当前对象。 通过new的方式开创建对象，也就是实例化对象，同时对属性进行初始化 实例化对象的构造器（constructor）是指向构造函数的。所以，实例对象是通过构造器函数来创建设的，这个创建的过程教实例化。 判断这个对象是否属于这种数据类型的方式有两种： 1、通过构造器方式————&amp;gt;实例对象.c">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-03T09:51:17.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]自定义构造器函数">
+<meta name="twitter:description" content="总结笔记自定义构造器函数相当于一个模板，需要的时候去引用它，函数内没有new和返回值，this是当前对象。 通过new的方式开创建对象，也就是实例化对象，同时对属性进行初始化 实例化对象的构造器（constructor）是指向构造函数的。所以，实例对象是通过构造器函数来创建设的，这个创建的过程教实例化。 判断这个对象是否属于这种数据类型的方式有两种： 1、通过构造器方式————&amp;gt;实例对象.c">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-原-自定义构造器函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/26/原-自定义构造器函数/" class="article-date">
+  <time datetime="2018-11-26T03:30:00.000Z" itemprop="datePublished">2018-11-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端笔记/">-前端笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [原]自定义构造器函数
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="总结笔记"><a href="#总结笔记" class="headerlink" title="总结笔记"></a><a id="_0"></a>总结笔记</h2><p>自定义构造器函数相当于一个模板，需要的时候去引用它，函数内没有new和返回值，this是当前对象。</p>
+<p>通过new的方式开创建对象，也就是实例化对象，同时对属性进行初始化</p>
+<p><em>实例化对象的构造器（constructor）是指向构造函数的。所以，实例对象是通过构造器函数来创建设的，这个创建的过程教实例化</em>。</p>
+<p>判断这个对象是否属于这种数据类型的方式有两种：</p>
+<p>1、通过构造器方式————&gt;实例对象.constructor==构造函数</p>
+<p>2、<strong>instanceof 方式</strong>（尽可能使用这种方式）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.eat=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    consolo.log(<span class="string">"吃"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> per=<span class="keyword">new</span> Person(<span class="string">"li"</span> ,<span class="number">18</span>)</span><br><span class="line">per.eat()</span><br></pre></td></tr></table></figure></p>
+<p>上面的eat（）是一个方法，如果多次创建对象，那么创建的对象中的eat方法不是同一个，所以就会占用大量内存空间，</p>
+<p>所以要使用原型。</p>
+<p>那么原型的作用之一就是  —&gt;  <strong>数据共享，节省内存空间</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/26/原-自定义构造器函数/" data-id="cjqgflr95000b6oct43bfp333" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/26/原-flex-box布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [原]flex box布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/15/转-全局捕获/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[转]全局捕获</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/02/原-Es6/">[原]Es6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/02/转-Evevt-Loop-事件循环/">[转]Evevt Loop 事件循环</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/原-jQuery总结/">[原]jQuery总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/08/原-jq要注意的点/">[原]jq要注意的点</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/原-关于属性/">[原]关于属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

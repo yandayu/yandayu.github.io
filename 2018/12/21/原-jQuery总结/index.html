@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>[原]jQuery总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery入口函数$(document).ready(function(){}) $(function(){}) js入口函数与jQ入口函数的区别js函数的入口函数比jq慢,因为js的入口函数会等待页面加载完成,并且外部资源也加载完成后才会执行,但jq 的入口函数等待页面加载完成后就会执行。 js入口函数只能执行一次,会产生覆盖,但jq的可以多次使用 隐式迭代jQuery有隐式迭代的特性,会自动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]jQuery总结">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/原-jQuery总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jQuery入口函数$(document).ready(function(){}) $(function(){}) js入口函数与jQ入口函数的区别js函数的入口函数比jq慢,因为js的入口函数会等待页面加载完成,并且外部资源也加载完成后才会执行,但jq 的入口函数等待页面加载完成后就会执行。 js入口函数只能执行一次,会产生覆盖,但jq的可以多次使用 隐式迭代jQuery有隐式迭代的特性,会自动">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-03T09:48:55.464Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]jQuery总结">
+<meta name="twitter:description" content="jQuery入口函数$(document).ready(function(){}) $(function(){}) js入口函数与jQ入口函数的区别js函数的入口函数比jq慢,因为js的入口函数会等待页面加载完成,并且外部资源也加载完成后才会执行,但jq 的入口函数等待页面加载完成后就会执行。 js入口函数只能执行一次,会产生覆盖,但jq的可以多次使用 隐式迭代jQuery有隐式迭代的特性,会自动">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-原-jQuery总结" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/21/原-jQuery总结/" class="article-date">
+  <time datetime="2018-12-21T12:54:42.000Z" itemprop="datePublished">2018-12-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端笔记/">-前端笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [原]jQuery总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jQuery入口函数"><a href="#jQuery入口函数" class="headerlink" title="jQuery入口函数"></a><a id="jQuery_0"></a>jQuery入口函数</h2><p><code>$(document).ready(function(){})</code></p>
+<p><code>$(function(){})</code></p>
+<h2 id="js入口函数与jQ入口函数的区别"><a href="#js入口函数与jQ入口函数的区别" class="headerlink" title="js入口函数与jQ入口函数的区别"></a><a id="jsjQ_4"></a>js入口函数与jQ入口函数的区别</h2><p>js函数的入口函数比jq慢,因为js的入口函数会等待页面加载完成,并且外部资源也加载完成后才会执行,但jq</p>
+<p>的入口函数等待页面加载完成后就会执行。</p>
+<p>js入口函数只能执行一次,会产生覆盖,但jq的可以多次使用</p>
+<h2 id="隐式迭代"><a href="#隐式迭代" class="headerlink" title="隐式迭代"></a><a id="_9"></a>隐式迭代</h2><p>jQuery有隐式迭代的特性,会自动的遍历,设置操作时会给选择到所有的对象都设置上相同的值。在获取值时,如果选择的对象中有多个元素,就只会获取到第一个的值,因为隐式迭代会让jq认为所有的值都为相同的。</p>
+<h2 id="链式编程"><a href="#链式编程" class="headerlink" title="链式编程"></a><a id="_12"></a>链式编程</h2><p>jq的方法都会返回一个对象,所以我们可以一直调用下去。但返回的如果不是当前对象,就不能链式下去。</p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a><a id="_15"></a>选择器</h2><p><strong>基本选择器</strong></p>
+<ol>
+<li>ID选择器</li>
+<li>类选择器</li>
+<li>标签选择器</li>
+<li>并列选择器    <code>$(&#39;p,span&#39;)</code></li>
+<li>交集选择器    <code>$(&#39;p.box&#39;)</code></li>
+</ol>
+<p><strong>层次选择器</strong></p>
+<ol>
+<li>直接子级选择器</li>
+<li>后代选择器</li>
+<li>后面所有同级  $(“p~span”)</li>
+<li>后面紧挨着的同级  $(“p+span”)</li>
+</ol>
+<p><strong>筛选选择器（方法）</strong>   ()里面也可以加选择器</p>
+<p><code>.first()</code>                   第一个元素</p>
+<p><code>.last()</code>                   最后一个</p>
+<p><code>.children()</code>            相当于子级选择器</p>
+<p><code>.find()</code>                   相当于后代选择器</p>
+<p><code>.parent()</code>               父元素</p>
+<p><code>.parents()</code>             祖先元素</p>
+<p><code>.next()</code>                 下一个同级</p>
+<p><code>.nextAll()</code>             下面所有的同级</p>
+<p><code>.nextUntil()</code>            往下找,直到选择器为止不包括选择器（相当与一个区间）</p>
+<p><code>.prev()</code>                 上一个</p>
+<p><code></code>.prevAll() `             上面所有的同级</p>
+<p><code>.prevUntil()</code>          往上找,直到选择器,不包含选择器</p>
+<p><code>.siblings()</code>            除自身外所有的同级</p>
+<p><code>.slice()</code>                  同数组方法</p>
+<p><code>.filter()</code>                  选取满足选择器的元素</p>
+<p><code>.not()</code>                    选取不满足选择器的元素</p>
+<p><code>.has()</code>                   选取一个元素中有子元素满足此选择器</p>
+<p><code>.is()</code>                      判断是否有此元素,如果一个有返回true,如果有多个,返回集合</p>
+<p><code>.closest()</code>             从自身找距离自己最近的元素</p>
+<p><code>.offsetParent()</code>     距离自己最近的定位祖先元素</p>
+<p><code>.eq(index)</code>            选取指定下标的元素         .get(index)方法与此相同,但get()返回的是DOM对象,所以也可以用来将jq对</p>
+<p>象转为DOM对象  ,$(dom对象)这种方法可以转为jq对象</p>
+<p><strong>过滤选择器</strong></p>
+<p><code>:first</code>              第一个</p>
+<p><code>:last</code>               最后一个</p>
+<p><code>:even</code>             偶数个</p>
+<p><code>:odd</code>               奇数个</p>
+<p><code>:gt(index)</code>        大于索引的</p>
+<p><code>:lt(index)</code>         小于索引的</p>
+<p><code>:contains()</code>     选取内容满足选择器的</p>
+<p><code>:not</code>               不满足选择器的</p>
+<p><code>:visible</code>          可见的元素</p>
+<p><code>:hide</code>              隐藏的元素</p>
+<p><code>:parent</code>           非空元素</p>
+<p><code>:empty</code>         空元素</p>
+<p><code>:has()</code>           选择包含有选择器的元素</p>
+<p><code>:animate</code>        选择正在应用动画状态的元素</p>
+<p><code>:target</code>           选择锚链接的目标位置</p>
+<p><code>:button</code></p>
+<p><code>:checked</code></p>
+<p><code>:selecte</code></p>
+<p><code>:disable</code></p>
+<p><code>:enabled</code></p>
+<p>所有css3的子元素选择器,属性选择器,这里就不过多写了(nth-child等)</p>
+<p><strong>使用上下文获取元素</strong></p>
+<p><code>$(“p”,&quot;#box&quot;)</code>   从#box下获取p元素</p>
+<h2 id="操作样式"><a href="#操作样式" class="headerlink" title="操作样式"></a><a id="_80"></a>操作样式</h2><p><strong>css()</strong></p>
+<p>传一个参是获取样式值</p>
+<p>传一个属性一个值是修改或添加</p>
+<p>操作多个可以传对象</p>
+<p><strong>操作class</strong></p>
+<p><code>.addClass()</code>   添加类</p>
+<p><code>.removeClass()</code> 移除类</p>
+<p><code>.hasClass()</code>   判断是否有这个类</p>
+<p><code>.toggleClass()</code>  切换类,如果有则删除,如果没有则加上</p>
+<h2 id="操作属性"><a href="#操作属性" class="headerlink" title="操作属性"></a><a id="_91"></a>操作属性</h2><p><strong>attr()</strong></p>
+<p>与css的传参方式相同</p>
+<p><code>removeAttr()</code>  删除属性</p>
+<p><strong>prop()</strong></p>
+<p>操作一些属性值为布尔值的属性,例如”<code>checked</code>,<code>disabled</code>等”</p>
+<p><code>removeProp()</code>  删除属性</p>
+<p><strong>data()</strong></p>
+<p>操作自定义属性值</p>
+<p><code>removeData()</code>   删除属性</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a><a id="_102"></a>动画</h2><p><code>show()</code>和<code>hide()</code>   显示和隐藏    第一个参数是动画执行时间,第二个回调函数</p>
+<p>slideDown()<code>,</code>slideUp()<code>,</code>slideToggle()`    划入滑出和切换</p>
+<p><code>fadeIn()</code>,<code>fadeOut()</code>,<code>fadeToggle()</code>       渐入,渐出和切换（改变透明度）</p>
+<p><code>animated(property,执行时间,执行效果(swing/linear),回调函数)</code></p>
+<p><strong>动画队列</strong></p>
+<p>jq会把动画储存到动画队列中,动画会按照顺序执行,不会丢失。但如果多次快速触发动画,动画执行需要一定时间,当不触发动画时,动画依然会执行,一直等到动画队列结束,为了解决这个问题我们可以使用 <code>stop()</code>方法</p>
+<p><code>stop()</code>方法要在动画前调用,当触发动画时,先停止之前动画,再执行动画效果。</p>
+<p><code>stop()</code>的方法有两个参数,第一个为是否清除动画队列,第二个为是否跳到动画的最终效果,一般情况下我们不会使用这两个参数。</p>
+<p><code>delay(延迟时间,[队列名称])</code>   推迟动画队列之后的项目</p>
+<h2 id="节点操作（增删改复制）"><a href="#节点操作（增删改复制）" class="headerlink" title="节点操作（增删改复制）"></a><a id="_113"></a>节点操作（增删改复制）</h2><p>创建: <code>$()</code></p>
+<p>添加: <code>append()</code>      添加到目标元素的最后面（作为子元素）    也可以把想要创建的元素直接写在括号中,会先创建后添加</p>
+<p><code>appendTo()</code>   与上的不同在于:目标元素写在括号中</p>
+<p><code>prepend ()</code>     添加到目标元素的子元素的最前面</p>
+<p><code>prependTo()</code>   与 appendTo同理</p>
+<p><code>after()</code>              添加到目标元素的下面（作为兄弟元素）</p>
+<p><code>innerAfter()</code></p>
+<p><code>before()</code>               添加到目标元素的上面（作为兄弟元素）</p>
+<p><code>innerbefore()</code></p>
+<p>替换: <code>replaceWith()</code>     把目标元素替换为括号中的元素</p>
+<p><code>replaceAll()</code>         用括号中的元素替换目标元素</p>
+<p>克隆: <code>clone(true)</code>    深复制,不仅复制元素本身及其子元素,还会复制其绑定的事件和数据</p>
+<p><code>clone(true)</code>    浅复制,只复制元素本身及其子元素,不会复制事件及数据</p>
+<p><code>clone(true,false)</code>   复制元素本身及其子元素,但只复制父元素的事件及数据,不复制子元素的事件及数据</p>
+<p>只要第一个参数为false,则不管第二个参数是什么,都为false</p>
+<p>删除: <code></code>empty()`     清空元素,但元素自身依旧存在。会解除绑定事件</p>
+<p><code>html(&#39;&#39;)</code>       清空元素,但元素自身依旧存在。但不会清空被清空的元素身上绑定的事件,会造成内存泄露。</p>
+<p><code>detach()</code>     删除元素,自身也会被删除。但此方法不会删除元素身上绑定的事件数据</p>
+<p><code>remove()</code>    删除元素,自身也会被删除。这个方法会删除绑定的事件数据。</p>
+<p>删除的这两个方法,都不会删除jq对象,都会返回被删除的元素。我们可以在需要的时候重新添加到页面中。</p>
+<h2 id="事件的注册触发解绑"><a href="#事件的注册触发解绑" class="headerlink" title="事件的注册触发解绑"></a><a id="_135"></a>事件的注册触发解绑</h2><p>注册: <code>on(事件类型,[事件委托的子元素],[传递给事件处理函数的数据,一般使用event,data来回去],事件处理函数)</code></p>
+<p>触发: <code>trigger(事件类型)</code><br><code>解绑:</code>off(事件类型)`</p>
+<h2 id="特殊属性操作（属性值-高宽）"><a href="#特殊属性操作（属性值-高宽）" class="headerlink" title="特殊属性操作（属性值,高宽）"></a><a id="_140"></a>特殊属性操作（属性值,高宽）</h2><p>获取或修改表单中的值:<code>val()</code>   传值为修改</p>
+<p>获取或修改标签中的值:<code>text()</code>   <code>html()</code>  与innerText和innerHTML相同</p>
+<p><code>width()</code>   实际宽度width,返回一个数字,传值可修改</p>
+<p><code>height()</code>   实际高度</p>
+<p><code>innerWidth()</code>  width+padding</p>
+<p><code>innerHeight()</code>   height+padding</p>
+<p><code>outerwidth()</code>    width+padding+border</p>
+<p><code>outerHeight()</code>   height+padding+border</p>
+<p><code>outerwidth(true)</code>    width+padding+border+margin</p>
+<p><code>outerHeight(true)</code>   height+padding+border+margin</p>
+<p><code>scrollTop()</code>     被卷曲出去的高度</p>
+<p><code>scrollLeft()</code>     被卷曲出去的宽度</p>
+<p><code>offset()</code>     获取元素距离document的距离,返回一个对象,里面有top和left的值。如果设置传一个对象,设置之后会给元素加相对定位,改变位置。</p>
+<p><code>position()</code>    获取元素距离有定位父元素的距离,只可获取不能修改</p>
+<h2 id="操作集合"><a href="#操作集合" class="headerlink" title="操作集合"></a><a id="_156"></a>操作集合</h2><p><code>add()</code>   合并集合,括号内可以是选择器,标签,DOM对象,jq对象</p>
+<p><code>addBack()</code>   将过滤后的对象与上一个合并</p>
+<p><code>contents()</code>   获取对象中每一个元素的内容（文本,注释和标签）</p>
+<p><code>index()</code>     返回当前元素在所有兄弟元素里面的索引</p>
+<p><code>end()</code>   返回到上一次的操作</p>
+<h2 id="冲突"><a href="#冲突" class="headerlink" title="$冲突"></a><a id="_163"></a>$冲突</h2><p>当jq拿到控制权时,可以使用<code>onConflict()</code>来释放控制权,如果没有控制权可以使用jQuery来代替$</p>
+<h2 id="包裹元素"><a href="#包裹元素" class="headerlink" title="包裹元素"></a><a id="_166"></a>包裹元素</h2><p><code>wrap()</code>   使用一个元素包裹每一个被选择到的对象</p>
+<p><code>wrapAll()</code>   使用一个元素包裹所有被选择到的元素</p>
+<p><code>wrapInner()</code>   使用指定标签包裹元素中的内容</p>
+<p><code>unwrap()</code>    删除包裹该元素的元素,也就是父元素,如果括号内传了选择器,如果不满足此选择器,则不会被删除</p>
+<h2 id="工具方法"><a href="#工具方法" class="headerlink" title="工具方法"></a><a id="_172"></a>工具方法</h2><p><code>$.each(function(索引,属性){})</code>   遍历</p>
+<p><code>$.each(function(属性名,属性值){})</code>   遍历</p>
+<p>遍历对象时形参为属性名和属性值,数组或jq对象时,形参为索引和属性</p>
+<p><code>$.extend(true/false,obj1,obj2)</code>  将第二个及其以后的对象合并到第一个  第一个值为true是深合并,会合并对象中的对象,false则不会。如果对象中的属性名有相同的,后面的会覆盖前面的。如果属性值出现undefined,则会被忽略。</p>
+<p>可以用来复制对象   $.extent({},obj1)</p>
+<p><code>$.greg(数组,function(属性,索引){})</code>           从数组中过滤出满足条件的元素,返回值为布尔值</p>
+<p><code>$.merge(arr1,arr2)`</code>    把第二个数组合并到第一个,这个方法只能有两个参数</p>
+<p><code>$.inArray(要找的元素,去哪个数组找,从索引几开始找(默认0))</code>     属性是否在数组中,是则返回索引,不是返回-1</p>
+<p><code>$.map(数组/对象,function(元素/属性值,索引/属性名){})</code>    用指定函数处理对象或数组中的每一个元素,返回值作为数组或对象中的元素,并把结果封装为新的数组或对象,如果返回null/undefined,则不会被添加到数组或对象中</p>
+<p><code>$.makeArray()</code>     把一个类似数组（有集合,下标）的对象转为数组</p>
+<p><code>$.isArray()</code>     判断是否为数组</p>
+<p><code>$.isPlainObject()</code>  判断是否为一个对象</p>
+<p><code>$.isEmptyObject()</code>   判断是否为空对象</p>
+<p><code>$.type()</code>    检测数据类型   与typeof()类似</p>
+<p><code>toArray()</code>   将JQ对象转为数组</p>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><a id="AJAX_189"></a>AJAX</h2><p><code>$().load(url,与请求一同发送的查询字符串键/值对集合,回调函数)</code>   从服务器加载数据,并把返回的数据放置到指定元素中</p>
+<p><code>$().getScript(url,回调函数)</code>   使用get方式获取js类型的数据</p>
+<p><code>$().getJSON(url,回调函数)</code>    使用get方式获取quJSON类型的数据</p>
+<p><code>$().get(url,回调函数,期望返回数据的类型)</code>  使用get方式获取指定类型的数据   能接受数据的类型有5种:html,text,JSON,js,xml</p>
+<p><code>$().post(url,提交的数据,回调函数,期望返回数据的类型)</code>  使用post方式提交数据</p>
+<p><code>$().ajax(url,各种设置)/ $().ajax(各种设置)</code>    设置:url,data数据,dataType数据类型,timeout超时时间,method提交方式,global :true/false是否触发全局ajax事件处理程序,success回调函数,error回调,complete回调,beforeSend回调</p>
+<p><code></code>$().ajaxsetup()`  设置下面的ajax请求的默认值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/21/原-jQuery总结/" data-id="cjqgflrah000s6octzvzn944k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/02/转-Evevt-Loop-事件循环/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [转]Evevt Loop 事件循环
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/08/原-jq要注意的点/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">[原]jq要注意的点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/02/原-Es6/">[原]Es6</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/02/转-Evevt-Loop-事件循环/">[转]Evevt Loop 事件循环</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/原-jQuery总结/">[原]jQuery总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/08/原-jq要注意的点/">[原]jq要注意的点</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/原-关于属性/">[原]关于属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
