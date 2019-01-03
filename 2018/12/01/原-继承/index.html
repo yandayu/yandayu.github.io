@@ -5,21 +5,22 @@
   
 
   
-  <title>[原]继承 | Hexo</title>
+  <title>[原]继承 | 闫大雨的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="定义面向对象的特性：封装，继承，多态。 继承是类与类之间的关系，在面向对象的语言中是为了多态服务的。而js不是一门面向对象的语言，没有类的概念，但是我们可以模拟面向对象，模拟继承。继承是一种父类级别与子类级别的关系。 方法1、原型继承—-&amp;gt;改变原型的指向 原型的作用是数据共享，目的是为了节省内存空间，那么在这我们可以知道原型的另一个作用：继承。所以，继承的作用也是为了节省内存空间。 缺陷：因">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[原]继承">
 <meta property="og:url" content="http://yoursite.com/2018/12/01/原-继承/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="闫大雨的博客">
 <meta property="og:description" content="定义面向对象的特性：封装，继承，多态。 继承是类与类之间的关系，在面向对象的语言中是为了多态服务的。而js不是一门面向对象的语言，没有类的概念，但是我们可以模拟面向对象，模拟继承。继承是一种父类级别与子类级别的关系。 方法1、原型继承—-&amp;gt;改变原型的指向 原型的作用是数据共享，目的是为了节省内存空间，那么在这我们可以知道原型的另一个作用：继承。所以，继承的作用也是为了节省内存空间。 缺陷：因">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T09:49:32.092Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-03T10:43:52.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[原]继承">
 <meta name="twitter:description" content="定义面向对象的特性：封装，继承，多态。 继承是类与类之间的关系，在面向对象的语言中是为了多态服务的。而js不是一门面向对象的语言，没有类的概念，但是我们可以模拟面向对象，模拟继承。继承是一种父类级别与子类级别的关系。 方法1、原型继承—-&amp;gt;改变原型的指向 原型的作用是数据共享，目的是为了节省内存空间，那么在这我们可以知道原型的另一个作用：继承。所以，继承的作用也是为了节省内存空间。 缺陷：因">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="闫大雨的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">闫大雨的博客</a>
       </h1>
       
     </div>
@@ -55,7 +56,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -71,7 +72,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/前端笔记/">-前端笔记</a>
+    <a class="article-category-link" href="/categories/前端笔记/">前端笔记</a>
   </div>
 
   </div>
@@ -109,6 +110,8 @@
       <a data-url="http://yoursite.com/2018/12/01/原-继承/" data-id="cjqgflr8x000a6octyb0xvs12" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
@@ -141,9 +144,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li></ul>
     </div>
   </div>
 
@@ -151,9 +154,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es6/">Es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
   </div>
 
@@ -161,18 +164,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+      <a href="/tags/Es6/" style="font-size: 10px;">Es6</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 20px;">js</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
     </div>
   </div>
 
@@ -180,7 +183,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -216,7 +219,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 yan<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

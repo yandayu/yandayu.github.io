@@ -5,21 +5,22 @@
   
 
   
-  <title>[转]全局捕获 | Hexo</title>
+  <title>[转]全局捕获 | 闫大雨的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="全局捕获只支持鼠标事件，不支持键盘事件。 全局捕获： 全局（包含浏览器外）出现一个鼠标事件，会被设置全局捕获的对象捕获，如果此对象正好有对应的事件函数， 那么会被触发，而最初的发起事件的元素就不会执行它的事件函数了，通俗点说就是事件被掠走了。 全局捕获只能执行一次捕获的事件，如果持续捕获可能会出现问题，可以想象下： 如果全局捕获点击事件，鼠标无论点击哪里都会执行那段代码，那么连最基本的关闭浏览器窗">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[转]全局捕获">
 <meta property="og:url" content="http://yoursite.com/2018/11/15/转-全局捕获/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="闫大雨的博客">
 <meta property="og:description" content="全局捕获只支持鼠标事件，不支持键盘事件。 全局捕获： 全局（包含浏览器外）出现一个鼠标事件，会被设置全局捕获的对象捕获，如果此对象正好有对应的事件函数， 那么会被触发，而最初的发起事件的元素就不会执行它的事件函数了，通俗点说就是事件被掠走了。 全局捕获只能执行一次捕获的事件，如果持续捕获可能会出现问题，可以想象下： 如果全局捕获点击事件，鼠标无论点击哪里都会执行那段代码，那么连最基本的关闭浏览器窗">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T09:51:34.879Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-03T10:44:25.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转]全局捕获">
 <meta name="twitter:description" content="全局捕获只支持鼠标事件，不支持键盘事件。 全局捕获： 全局（包含浏览器外）出现一个鼠标事件，会被设置全局捕获的对象捕获，如果此对象正好有对应的事件函数， 那么会被触发，而最初的发起事件的元素就不会执行它的事件函数了，通俗点说就是事件被掠走了。 全局捕获只能执行一次捕获的事件，如果持续捕获可能会出现问题，可以想象下： 如果全局捕获点击事件，鼠标无论点击哪里都会执行那段代码，那么连最基本的关闭浏览器窗">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="闫大雨的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">闫大雨的博客</a>
       </h1>
       
     </div>
@@ -55,7 +56,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -114,6 +115,8 @@
       <a data-url="http://yoursite.com/2018/11/15/转-全局捕获/" data-id="cjqgflrad000r6octnwnfvfm1" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
@@ -146,9 +149,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li></ul>
     </div>
   </div>
 
@@ -156,9 +159,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es6/">Es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
   </div>
 
@@ -166,18 +169,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+      <a href="/tags/Es6/" style="font-size: 10px;">Es6</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 20px;">js</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
     </div>
   </div>
 
@@ -185,7 +188,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -221,7 +224,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 yan<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

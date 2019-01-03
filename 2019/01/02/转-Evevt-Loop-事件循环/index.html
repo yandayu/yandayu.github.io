@@ -5,23 +5,24 @@
   
 
   
-  <title>[转]Evevt Loop 事件循环 | Hexo</title>
+  <title>[转]Evevt Loop 事件循环 | 闫大雨的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天在看es6的promise的时候，看了一个很有意思的面试题，牵扯到了setTimeout的执行顺序，总结一下 贴一下面试题的链接 Excuse me？这个前端面试在搞事！ - Liril的文章 - 知乎https://zhuanlan.zhihu.com/p/25407758  同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入Event Table并注册函数。 当指定的事">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[转]Evevt Loop 事件循环">
 <meta property="og:url" content="http://yoursite.com/2019/01/02/转-Evevt-Loop-事件循环/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="闫大雨的博客">
 <meta property="og:description" content="今天在看es6的promise的时候，看了一个很有意思的面试题，牵扯到了setTimeout的执行顺序，总结一下 贴一下面试题的链接 Excuse me？这个前端面试在搞事！ - Liril的文章 - 知乎https://zhuanlan.zhihu.com/p/25407758  同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入Event Table并注册函数。 当指定的事">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/EventLoop.png">
-<meta property="og:updated_time" content="2019-01-03T10:38:50.868Z">
+<meta property="og:updated_time" content="2019-01-03T10:44:18.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转]Evevt Loop 事件循环">
 <meta name="twitter:description" content="今天在看es6的promise的时候，看了一个很有意思的面试题，牵扯到了setTimeout的执行顺序，总结一下 贴一下面试题的链接 Excuse me？这个前端面试在搞事！ - Liril的文章 - 知乎https://zhuanlan.zhihu.com/p/25407758  同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入Event Table并注册函数。 当指定的事">
 <meta name="twitter:image" content="http://yoursite.com/images/EventLoop.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="闫大雨的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -40,7 +41,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">闫大雨的博客</a>
       </h1>
       
     </div>
@@ -57,7 +58,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -114,6 +115,8 @@
       <a data-url="http://yoursite.com/2019/01/02/转-Evevt-Loop-事件循环/" data-id="cjqgflr9c000g6octanyy61bx" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
@@ -146,9 +149,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li></ul>
     </div>
   </div>
 
@@ -156,9 +159,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es6/">Es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
   </div>
 
@@ -166,18 +169,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+      <a href="/tags/Es6/" style="font-size: 10px;">Es6</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 20px;">js</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
     </div>
   </div>
 
@@ -185,7 +188,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -221,7 +224,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 yan<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

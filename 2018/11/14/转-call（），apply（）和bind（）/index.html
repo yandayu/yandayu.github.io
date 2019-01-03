@@ -5,21 +5,22 @@
   
 
   
-  <title>[转]call（），apply（）和bind（） | Hexo</title>
+  <title>[转]call（），apply（）和bind（） | 闫大雨的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天对于call方法和apply方法有些懵，所以去看了些别人的总结，感觉有了点概念，把一些大佬写的东西中自己感觉易懂的解释和经典的案例记录一下。 定义call方法: 语法：call([thisObj[,arg1[, arg2[,   [,.argN]]]]]) 定义：调用一个对象的一个方法，以另一个对象替换当前对象。 说明： call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[转]call（），apply（）和bind（）">
 <meta property="og:url" content="http://yoursite.com/2018/11/14/转-call（），apply（）和bind（）/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="闫大雨的博客">
 <meta property="og:description" content="今天对于call方法和apply方法有些懵，所以去看了些别人的总结，感觉有了点概念，把一些大佬写的东西中自己感觉易懂的解释和经典的案例记录一下。 定义call方法: 语法：call([thisObj[,arg1[, arg2[,   [,.argN]]]]]) 定义：调用一个对象的一个方法，以另一个对象替换当前对象。 说明： call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T09:51:24.227Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-03T10:44:11.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转]call（），apply（）和bind（）">
 <meta name="twitter:description" content="今天对于call方法和apply方法有些懵，所以去看了些别人的总结，感觉有了点概念，把一些大佬写的东西中自己感觉易懂的解释和经典的案例记录一下。 定义call方法: 语法：call([thisObj[,arg1[, arg2[,   [,.argN]]]]]) 定义：调用一个对象的一个方法，以另一个对象替换当前对象。 说明： call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="闫大雨的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">闫大雨的博客</a>
       </h1>
       
     </div>
@@ -55,7 +56,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -122,6 +123,8 @@
       <a data-url="http://yoursite.com/2018/11/14/转-call（），apply（）和bind（）/" data-id="cjqgflr9f000i6oct54c170im" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
@@ -149,9 +152,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">-前端笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li></ul>
     </div>
   </div>
 
@@ -159,9 +162,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">-css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">-js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Es6/">Es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
   </div>
 
@@ -169,18 +172,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css3/" style="font-size: 20px;">-css3</a> <a href="/tags/js/" style="font-size: 10px;">-js</a>
+      <a href="/tags/Es6/" style="font-size: 10px;">Es6</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 20px;">js</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li></ul>
     </div>
   </div>
 
@@ -188,7 +191,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -224,7 +227,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
+      &copy; 2019 yan<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
