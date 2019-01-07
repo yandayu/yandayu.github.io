@@ -17,13 +17,7 @@
 <p>因为实例对象的原型（<em>proto</em>）指向的是该对象所在的构造函数的原型对象（prototype），构造函数的原型对象（prototype）如果改变了，实例对象（<em>proto</em>）的指向也会改变。</p>
 <p>同时<em>Animal也继承了Person</em>。</p>
 <p>那么如果又想改变指向，又想访问到方法，<strong>解决方法：在原型改变后再添加方法</strong></p>
-<h2 id="原型的简单写法"><a href="#原型的简单写法" class="headerlink" title="原型的简单写法"></a><a id="_44"></a>原型的简单写法</h2><p>构造函数.prototype={</p>
-<p>//需要手动修改构造器的指向</p>
-<p>constructor:构造函数；</p>
-<p>属性：属性值；</p>
-<p>方法：function（）{</p>
-<p>}</p>
-<p>}</p>
+<h2 id="原型的简单写法"><a href="#原型的简单写法" class="headerlink" title="原型的简单写法"></a><a id="_44"></a>原型的简单写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">构造函数.prototype=&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要手动修改构造器的指向</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">constructor</span>:构造函数；</span><br><span class="line"></span><br><span class="line">属性：属性值；</span><br><span class="line"></span><br><span class="line">方法：function（）&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>这样的写法也是改变了原型指向，让原型指向了一个对象，所以，如果先在原型上添加了一个方法，在使用此方式添加属性和方法，那么在原型上添加的方法将不会被访问到。解决方法：同上</strong></p>
 <h2 id="原型链定义"><a href="#原型链定义" class="headerlink" title="原型链定义"></a><a id="_56"></a>原型链定义</h2><p>原型链是实例对象和原型对象通过原型（<strong>proto</strong>）来联系的一种关系。是通过原型继承，形成了一个链条。</p>
 <h2 id="原型链的最终指向"><a href="#原型链的最终指向" class="headerlink" title="原型链的最终指向"></a><a id="_59"></a>原型链的最终指向</h2><p>实例对象.<strong>proto</strong>—&gt;构造函数.prototype</p>
