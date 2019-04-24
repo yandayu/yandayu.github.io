@@ -9,7 +9,7 @@ date: 2019-01-02 20:26:40
 **今天在看es6的promise的时候，看了一个很有意思的面试题，牵扯到了setTimeout的执行顺序，总结一下**
 **贴一下面试题的链接** Excuse me？这个前端面试在搞事！ - Liril的文章 - 知乎https://zhuanlan.zhihu.com/p/25407758
 
-![事件循环](https://img-blog.csdnimg.cn/2019010220091948.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjk3MDcy,size_16,color_FFFFFF,t_70)
+![事件循环](https://raw.githubusercontent.com/yandayu/yandayu.github.io/img/images/Event%20Loop.png)
 
 同步和异步任务分别进入不同的执行"场所"，同步的进入主线程，异步的进入Event Table并注册函数。
 当指定的事情完成时，Event Table会将这个函数移入Event Queue。

@@ -23,7 +23,7 @@ app.use(express.static('public'));
 
 app为express的实例，因为托管静态文件是中间件方法，所以使用了它的use方法
 
-2. `express.json`
+ 2. `express.json`
 
  这个方法是用来解析请求体的内容（解析application/json编码类型的数据），因为请求体中默认为空，当解析时才会被填充
  

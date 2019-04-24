@@ -22,7 +22,7 @@ date: 2018-11-26 20:31:14
 
     space-around    项目之间的间隙比项目到边框的间隙大一倍，与 space-between   的区别在于此方式两端会有一定的空隙，而 space-between 项目是紧挨着边框的
 
-    ![justify-content 对齐图解](https://img-blog.csdnimg.cn/20181126200943327.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjk3MDcy,size_16,color_FFFFFF,t_70)
+    ![justify-content 对齐图解](https://raw.githubusercontent.com/yandayu/yandayu.github.io/img/images/justify-content.png)
 
 
  2. 设置交叉轴（垂直）上的对齐方式
@@ -37,7 +37,7 @@ date: 2018-11-26 20:31:14
 
     baseline       基于第一行文字的基线对齐
 
-![align-items对齐图解](https://img-blog.csdnimg.cn/20181126195746963.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjk3MDcy,size_16,color_FFFFFF,t_70)
+    ![align-items对齐图解](https://raw.githubusercontent.com/yandayu/yandayu.github.io/img/images/align-items.png)
 
  3. 多行沿交叉轴对齐（多行轴线的对齐方式）**如果只有一根轴线，不起作用**
         align-content :        flex-start      与交叉轴的起点对齐

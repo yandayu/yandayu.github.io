@@ -8,19 +8,18 @@ date: 2019-01-29 13:08:27
 ---
 
 `jwt`是jsonwebtoken的简称，用来生成token。在登陆状态验证完成时发送给前台一个token，之后前台的请求都要带着token，后台验证其token的正确性及有效性之后才会回应其数据，在用户和服务器端之间安全的传递消息。
+
 **jwt实际是一个字符串，由三部分组成，头部，数据和签名。**
 
-生成token
-`const jwt = require('jsonwebtoken')`
+生成token:`const jwt = require('jsonwebtoken')`
 
-我们在页面引入jsonwebtoken后，可以使用其方法sign来生成token.
+我们在页面引入jsonwebtoken后，可以使用其方法sign来生成token:`jwt.sign(payload,secret,[options,callback])`
 
-`jwt.sign(payload,secret,[options,callback])`
-
-sign方法有四个参数，第一个是生成的token中包含的一些数据，此参数可以是一个对象，字符串或buffer。如果是对象，会使用JSON.stringify()转为json格式。我在对象中写入了一个GUID(时间戳)和user-agent信息;
-第二个参数是一个密钥，记录在服务器中，在验证时需要用到此参数;
-第三个是一些选项，经常用的大概就是有效期(expiresIn)，有效期的值以秒计数，也可以使用一些带有时间跨度的字符串，eg：’7d’,’5h’等;
-第四个是一个回调，回调的第一个参数是err,第二个是token。但此方法会默认返回token;
+sign方法有四个参数:
+1. 生成的token中包含的一些数据，此参数可以是一个对象，字符串或buffer。如果是对象，会使用JSON.stringify()转为json格式。我在对象中写入了一个GUID(时间戳)和user-agent信息;
+2. 一个密钥，记录在服务器中，在验证时需要用到此参数;
+3. 一些选项，经常用的大概就是有效期(expiresIn)，有效期的值以秒计数，也可以使用一些带有时间跨度的字符串，eg：’7d’,’5h’等;
+4. 一个回调，回调的第一个参数是err,第二个是token。但此方法会默认返回token;
 
 **下面是贴了实例的代码，在其中还使用了level存储了一个状态和时间**
 ```javascript
