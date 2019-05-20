@@ -1,5 +1,5 @@
 ---
-title: '[原]cors'
+title: 'cors'
 categories:
 - 前端
 tags:

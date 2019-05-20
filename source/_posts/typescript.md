@@ -1,5 +1,5 @@
 ---
-title: '[原]typescript'
+title: 'typescript'
 categories:
 - 前端
 tags:

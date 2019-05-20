@@ -1,5 +1,5 @@
 ---
-title: '[原]jQuery总结'
+title: 'jQuery总结'
 categories:
 - 前端
 tags:

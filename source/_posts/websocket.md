@@ -1,5 +1,5 @@
 ---
-title: '[原]WebSocket'
+title: 'WebSocket'
 categories:
 - 前端
 tags:

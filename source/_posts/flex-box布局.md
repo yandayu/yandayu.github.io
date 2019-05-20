@@ -1,5 +1,5 @@
 ---
-title: '[原]flex box布局'
+title: 'flex box布局'
 categories:
 - 前端
 tags:

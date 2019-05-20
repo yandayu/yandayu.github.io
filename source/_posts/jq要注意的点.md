@@ -1,5 +1,5 @@
 ---
-title: '[原]jq要注意的点'
+title: 'jq要注意的点'
 categories:
 - 前端
 tags:

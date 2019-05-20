@@ -1,5 +1,5 @@
 ---
-title: '[原]Vue-基础语法'
+title: 'Vue-基础语法'
 categories:
 - 前端
 tags:

@@ -1,5 +1,5 @@
 ---
-title: '[原]Vue-store'
+title: 'Vue-store'
 categories:
 - 前端
 tags:

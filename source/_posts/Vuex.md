@@ -1,5 +1,5 @@
 ---
-title: '[原]Vuex'
+title: 'Vuex'
 categories:
 - 前端
 tags:

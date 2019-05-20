@@ -1,5 +1,5 @@
 ---
-title: '[原]Vue-组件'
+title: 'Vue-组件'
 categories:
 - 前端
 tags:

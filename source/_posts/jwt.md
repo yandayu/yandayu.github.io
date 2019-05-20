@@ -1,5 +1,5 @@
 ---
-title: '[原]jwt'
+title: 'jwt'
 categories:
 - 前端
 tags:

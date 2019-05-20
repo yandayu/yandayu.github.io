@@ -1,5 +1,5 @@
 ---
-title: '[原]less'
+title: 'less'
 categories:
 - 前端
 tags:

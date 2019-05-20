@@ -1,5 +1,5 @@
 ---
-title: '[原]Es6'
+title: 'Es6'
 categories:
 - 前端
 tags:

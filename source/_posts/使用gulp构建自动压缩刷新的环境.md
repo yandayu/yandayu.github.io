@@ -1,5 +1,5 @@
 ---
-title: '[原]使用gulp构建自动压缩刷新的环境'
+title: '使用gulp构建自动压缩刷新的环境'
 categories:
 - 前端
 tags:
