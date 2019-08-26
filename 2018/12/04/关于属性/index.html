@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Yan Dayu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Yan Dayu">
+    
+    <meta name="keywords" content="hexo,hexo-blog,yandayu">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>关于属性 · Hey,这里是闫大雨！</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/m11.png">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">yandayu&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">关于属性</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">yandayu's blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            关于属性
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="javascript">javascript</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">831</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/12/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="对象的增删改查"><a href="#对象的增删改查" class="headerlink" title="对象的增删改查"></a>对象的增删改查</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用字面量的形式实例化 Object 对象</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    myName: <span class="string">'周'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">添加属性</span><br><span class="line">obj1.age = <span class="number">20</span>;</span><br><span class="line">obj1[<span class="string">'gender'</span>] = <span class="string">'男'</span>;</span><br><span class="line"></span><br><span class="line">修改属性的值</span><br><span class="line">obj1.age += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">访问属性</span><br><span class="line">obj1[<span class="string">'myName'</span>]</span><br><span class="line">obj1.myName</span><br><span class="line"></span><br><span class="line">删除属性</span><br><span class="line"><span class="keyword">delete</span> obj1.age;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历对象中的属性"><a href="#遍历对象中的属性" class="headerlink" title="遍历对象中的属性"></a>遍历对象中的属性</h2><ol>
+<li>for in 遍历</li>
+<li>Object.keys(要遍历的对象)<br>构造函数.方法=function(){}  可以不用实例化对象就可以通过<strong>构造函数.方法（）</strong>来调用，如上。</li>
+</ol>
+<h2 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h2><ol>
+<li>数据属性      保存的是数据      <strong>属性名：属性值</strong>的方式</li>
+<li>访问器属性   通常用于隐藏数据     用get，set 方法来获取或者设置属性</li>
+</ol>
+<h2 id="对象的方法"><a href="#对象的方法" class="headerlink" title="对象的方法"></a>对象的方法</h2><p><strong>判断一个属性是否在对象中</strong></p>
+<ol>
+<li><p>in 操作符           属性名 in 对象名   hasOwnProperty()      </p>
+</li>
+<li><p>对象名.hasOwnProperty（属性名）</p>
+<p>区别：2只会在对象的自有属性列表中查找，而1不仅会在自有属性列表下查找，还会沿着原型链查找。</p>
+<p><strong>判断某个属性是否可枚举</strong></p>
+<p><code>对象.propertyIsEnumerable()</code></p>
+<p><strong>判断一个对象是否是另一个对象的原型</strong></p>
+<p><code>原型.isPropertyOf(对象)</code></p>
+</li>
+</ol>
+<h2 id="属性的特性"><a href="#属性的特性" class="headerlink" title="属性的特性"></a>属性的特性</h2><p> <strong><em>获取属性的特性</em></strong></p>
+<p>  我们可以通过以下方式获取一个或多个属性的特性</p>
+<ol>
+<li>Object.getOwnPropertyDescriptor(对象名,要获取的属性名)          获取对象中该属性的特性</li>
+<li><p>Object.getOwnPropertyDescriptors（对象名）   获取对象中所有的属性的特性</p>
+<p>如下图代码打印一下它们获取到的特性</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> student=&#123;</span><br><span class="line">       studentName:<span class="string">"大雨"</span>,</span><br><span class="line">       age:<span class="number">20</span>,</span><br><span class="line">       play:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"打豆豆"</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">var</span> stu1=<span class="built_in">Object</span>.getOwnPropertyDescriptor(student,<span class="string">"age"</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">var</span> stu2=<span class="built_in">Object</span>.getOwnPropertyDescriptors(student);</span><br><span class="line">    </span><br><span class="line">   <span class="built_in">console</span>.log(stu1);</span><br><span class="line">   <span class="built_in">console</span>.log(stu2);</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/yandayu/yandayu.github.io/img/images/jietu01.png" alt="在这里插入图片描述"></p>
+<p>可以看到得到的是一个对象，那么可以看到它的特性有四个</p>
+<ul>
+<li>configurable       是否可配置</li>
+<li>enumerable        是否可枚举</li>
+<li>value                  属性值</li>
+<li>writable              是否可写<br>当然它们默认都是 true 。我们也可以去控制这些特性。</li>
+</ul>
+<p>  <strong><em>控制属性的特性</em></strong></p>
+<ol>
+<li>Object.defineProperty(对象名，属性，{修改特性的值 })    —–&gt; 控制一个属性的值</li>
+<li>Object.defineProperties(对象名，{属性名：{修改特性的值},属性名：{修改特性的值}})   —–&gt; 控制一个属性的值</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(student,<span class="string">"age"</span>,&#123;</span><br><span class="line">        value:<span class="number">18</span>,</span><br><span class="line">        configurable:<span class="literal">false</span>,</span><br><span class="line">        enumerable:<span class="literal">false</span>,</span><br><span class="line">        writable:<span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(student,&#123;</span><br><span class="line">    gender:&#123;</span><br><span class="line">    value:<span class="string">"女"</span>,</span><br><span class="line">    configurable:<span class="literal">true</span>,</span><br><span class="line">    enumerable:<span class="literal">false</span>,</span><br><span class="line">    writable:<span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    num:&#123;</span><br><span class="line">    value:<span class="number">01</span>,</span><br><span class="line">    configurable:<span class="literal">false</span>,</span><br><span class="line">    enumerable:<span class="literal">false</span>,</span><br><span class="line">    writable:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(student,<span class="string">"age"</span>))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(student))</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/yandayu/yandayu.github.io/img/images/jietu02.png" alt="在这里插入图片描述"><br>  所以我们也可以利用这种方式添加属性或者修改属性值，同时设置属性的特性</p>
+<h2 id="禁止对象扩展"><a href="#禁止对象扩展" class="headerlink" title="禁止对象扩展"></a>禁止对象扩展</h2><p>查询对象是否可被扩展     <code>Object.isExtensible(要查询的对象名)</code>       默认都为true。<br>禁止对象扩展     <code>Object.preventExtensions(要禁止的对象名)</code><br>禁止对象扩展的特性：不可向对象中添加新的属性</p>
+<h2 id="对象封印"><a href="#对象封印" class="headerlink" title="对象封印"></a>对象封印</h2><p>判断对象是否被封印     <code>Object.isSealed(要查询的对象名)</code><br>封印对象       <code>Object.seal(要封印的对象名)</code><br>对象被封印后的特性：不可删除属性，不可添加新属性，可以修改属性值。<br>所有被封印对象的属性的特性都被设置了：configurable: false</p>
+<h2 id="冻结对象"><a href="#冻结对象" class="headerlink" title="冻结对象"></a>冻结对象</h2><p>判断对象是否被冻结   <code>Object.isFrozen(要查询的对象名)</code><br>封印对象       <code>Object.freeze(要封印的对象名)</code><br>对象被封印后的特性：不可删除属性，不可添加新属性，不可修改属性值。</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://yandayu.github.io">Yan Dayu</a>
+            </p><p>原文链接：<a href="https://yandayu.github.io/2018/12/04/关于属性/">https://yandayu.github.io/2018/12/04/关于属性/</a>
+            </p><p>发表日期：<a href="https://yandayu.github.io/2018/12/04/关于属性/">December 4th 2018, 9:19:42 pm</a>
+            </p><p>更新日期：<a href="https://yandayu.github.io/2018/12/04/关于属性/">May 20th 2019, 10:22:01 am</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2018/12/08/jq要注意的点/" title="jq要注意的点">
+                    <div class="nextTitle">jq要注意的点</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/12/01/继承/" title="继承">
+                    <div class="prevTitle">继承</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1979769816@qq.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/yandayu" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的增删改查"><span class="toc-number">1.</span> <span class="toc-text">对象的增删改查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历对象中的属性"><span class="toc-number">2.</span> <span class="toc-text">遍历对象中的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象属性"><span class="toc-number">3.</span> <span class="toc-text">对象属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的方法"><span class="toc-number">4.</span> <span class="toc-text">对象的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性的特性"><span class="toc-number">5.</span> <span class="toc-text">属性的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止对象扩展"><span class="toc-number">6.</span> <span class="toc-text">禁止对象扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象封印"><span class="toc-number">7.</span> <span class="toc-text">对象封印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冻结对象"><span class="toc-number">8.</span> <span class="toc-text">冻结对象</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 25
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/12</span><a class="archive-post-title" href="/2019/07/12/重绘与回流/">重绘与回流</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href="/2019/07/02/React(memo,pureComponent,lazy,Suspense,错误边界)/">React(memo,pureComponent,lazy,Suspense,错误边界).</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/12</span><a class="archive-post-title" href="/2019/05/12/Grid网格布局/">Grid网格布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href="/2019/04/17/websocket/">WebSocket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/cors/">cors</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/29</span><a class="archive-post-title" href="/2019/01/29/jwt/">jwt</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span><a class="archive-post-title" href="/2019/01/23/typescript/">typescript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href="/2019/01/18/Vuex/">Vuex</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href="/2019/01/18/Vue-store/">Vue-store</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href="/2019/01/16/Vue-组件/">Vue-组件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href="/2019/01/16/Vue-基础语法/">Vue-基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href="/2019/01/16/less/">less</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href="/2019/01/09/使用express写接口/">使用express写接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href="/2019/01/09/使用gulp构建自动压缩刷新的环境/">使用gulp构建自动压缩刷新的环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/Es6/">Es6</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/转-Evevt-Loop-事件循环/">[转]Evevt Loop 事件循环</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/jQuery总结/">jQuery总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/jq要注意的点/">jq要注意的点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href="/2018/12/04/关于属性/">关于属性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href="/2018/12/01/继承/">继承</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href="/2018/12/01/原型和原型链/">原型和原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href="/2018/11/26/flex-box布局/">flex box布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href="/2018/11/26/自定义构造器函数/">自定义构造器函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href="/2018/11/15/转-全局捕获/">[转]全局捕获</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/14</span><a class="archive-post-title" href="/2018/11/14/转-call（），apply（）和bind（）/">[转]call（），apply（）和bind（）</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="react"><span class="iconfont-archer">&#xe606;</span>react</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="es6"><span class="iconfont-archer">&#xe606;</span>es6</span>
+    
+        <span class="sidebar-tag-name" data-tags="grid,css布局"><span class="iconfont-archer">&#xe606;</span>grid,css布局</span>
+    
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
+        <span class="sidebar-tag-name" data-tags="less"><span class="iconfont-archer">&#xe606;</span>less</span>
+    
+        <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
+    
+        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
+    
+        <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
+    
+        <span class="sidebar-tag-name" data-tags="typescript"><span class="iconfont-archer">&#xe606;</span>typescript</span>
+    
+        <span class="sidebar-tag-name" data-tags="cors"><span class="iconfont-archer">&#xe606;</span>cors</span>
+    
+        <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
+    
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="前端"><span class="iconfont-archer">&#xe60a;</span>前端</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Yan Dayu"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

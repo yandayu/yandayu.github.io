@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Yan Dayu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Yan Dayu">
+    
+    <meta name="keywords" content="hexo,hexo-blog,yandayu">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Grid网格布局 · Hey,这里是闫大雨！</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/m11.png">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">yandayu&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Grid网格布局</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">yandayu's blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Grid网格布局
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="grid,css布局">grid,css布局</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/12</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>网格线：网格容器的任意一条线，分为列网格线与行网格线</p>
+<p>网格轨道：两条相邻的网格线之间的空间为网格轨道</p>
+<p>网格单元格：两条相邻列网格线和两条相邻行网格线包围的空间为单元格，也就是表格的一个格</p>
+<p>网格区域：四条网格线包围的总空间为网格区域，一个区域中会包含多个单元格</p>
+<p>隐式轨道：当网格中的网格项对于单元格时，或位于显式网格之外时，就会创建隐式轨道</p>
+<h2 id="父元素-网格容器"><a href="#父元素-网格容器" class="headerlink" title="父元素/网格容器"></a>父元素/网格容器</h2><p> <code>display:grid/inline-grid(内联网格)</code> 将元素设置成网格容器</p>
+<p><code>grid-template-columns/gris-template-rows</code> 列/行的宽/高，也就是网格轨道的大小</p>
+<p><code>repeat()</code> 定义多个重复值，第一个参数为重复几次，第二个是重复项]<br><code>minmax()</code> 第一个参数表示最小轨道尺寸，第二个为最大尺寸。</p>
+<p><code>fr</code> 单位允许使用等分容器的剩余可用空间来设置网格轨道的大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">等价于</span><br><span class="line">```css grid-template-columns:1fr 1fr 1fr</span><br></pre></td></tr></table></figure>
+<p>也就是每列占容器可用空间的1/3</p>
+<p><code>grid-template-areas</code> 通过引用grid-area属性来指定的网格区域来定义网格的可视化结构<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">   <span class="attribute">display</span>:grid;</span><br><span class="line">   <span class="attribute">grid-template-columns</span>:<span class="number">30px</span> <span class="number">30px</span> <span class="number">30px</span> <span class="number">30px</span>;</span><br><span class="line">   <span class="attribute">grid-template-areas</span>:<span class="string">"header header header header"</span></span><br><span class="line">                       <span class="string">".      body   body   body"</span></span><br><span class="line">                       <span class="string">"none footer  foooter none"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.head</span>&#123;</span><br><span class="line">   <span class="attribute">grid-area</span>:header;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.body</span>&#123;</span><br><span class="line">   <span class="attribute">grid-area</span>:body;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.foot</span>&#123;</span><br><span class="line">   <span class="attribute">grid-area</span>:footer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上会创建一个4列3行的网格容器，总宽度为120px,每列30px,header独占一行，.代表空单元格，none为无</p>
+<p><code>grid-template</code> 是<code>grid-template-columns/rows/areas</code>的简写，但此属性不会覆盖三个属性</p>
+<p><code>grid-column-gap/gris-row-gap</code> 指定列/行之间的间隙与margin类似，但边缘不会有间隙，grid-可省略</p>
+<p><code>grid-gap</code>为上一条的缩写，<code>&lt;row&gt;&lt;column&gt;</code>,只写第一个时，第二个同第一,grid-亦可省略</p>
+<p><code>justify-items</code> 沿着行轴线对齐网格项</p>
+<p>可选值： </p>
+<ol>
+<li>start 将网格项对齐到其单元格的左侧起始边缘</li>
+<li>end  对齐到其单元格的右侧</li>
+<li>center 水平居中</li>
+<li><p>stretch 填满单元格的宽度（默认）</p>
+<p><code>align-items</code> 沿着列轴线对齐网格项</p>
+<p>可选值：</p>
+</li>
+<li>start 将网格项对齐到其单元格的顶部起始边缘</li>
+<li>end  对齐到其单元格的底部</li>
+<li>center 垂直居中</li>
+<li>stretch 填满单元格的高度（默认）</li>
+</ol>
+<p><code>place-items</code> 为以上两个的简写，第一个为<code>align-items</code></p>
+<p><code>justify-content</code> 在网格大小小于网格容器大小时，设置网格容器内的网格沿着行轴线对齐方式</p>
+<p>可选值： </p>
+<ol>
+<li>start 将网格项对齐到其单元格的左侧起始边缘</li>
+<li>end  对齐到其单元格的右侧</li>
+<li>center 水平居中</li>
+<li>stretch 填满网格容器的宽度</li>
+<li>space-around 每个网格项之间有均匀的间隙，左右两端一半的间隙</li>
+<li>space-between 每个网格项之间有均匀的间隙，左右两端无间隙</li>
+<li>space-evenly 每个网格项之间有均匀的间隙，左右两端也是均匀的间隙</li>
+</ol>
+<p><code>align-content</code> 沿着列对齐网格，参数同上</p>
+<p><code>place-content</code> 以上两个的简写，先列后行</p>
+<p><code>grid-auto-columns/rows</code> 任何自动生成的网格轨道大小（隐式轨道大小） </p>
+<p><code>grid-column/row</code> 用来定位网格项</p>
+<p>当有一个两行两列的网格时<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line">   grid-column:5/6;(第五条列网格线开始，第六条结束)</span><br><span class="line">   grid-row:2/3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>.a引用的网格线不存在，会自动生成隐式网格轨道来填补空缺，可以使用<code>grid-auto-columns/rows</code>来指定他们的大小</p>
+<p><code>grid-auto-flow</code> 如果不指定网格项的位置，自动算法会自动放置这些网格项，此属性会控制自动布局算法</p>
+<p>可选值：</p>
+<ol>
+<li>row 依次填入每行，根据需要添加新行（默认）</li>
+<li>column 依次填入每列</li>
+<li>dense 在稍后出现较小的网格项时，尝试填入网格中较早的空隙中</li>
+</ol>
+<p><code>grid</code> 简写,左行右列</p>
+<ol>
+<li><code>grid-template</code></li>
+<li><code>[auto-flow&amp;&amp;dense?]&lt;grid-auto-rows&gt;?/grid-template-columns</code></li>
+</ol>
+<p>eg:<code>grid:auto-flow 100px/1fr 1fr</code><br>等价于：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grid-auto-flow</span><span class="selector-pseudo">:row</span>;</span><br><span class="line"><span class="selector-tag">grid-auto-rows</span><span class="selector-pseudo">:100px</span>;</span><br><span class="line"><span class="selector-tag">grid-template-columns</span><span class="selector-pseudo">:1fr</span> 1<span class="selector-tag">fr</span>;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><code>grid-template-rows / [auto-flow&amp;&amp;dense?]&lt;grid-auto-columns&gt;?</code></li>
+</ol>
+<blockquote>
+<p>一次设置所有：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">grid</span>: [row1-start] <span class="string">"header header header"</span> <span class="number">1</span>fr [row1-end]</span><br><span class="line">        [row2-start] <span class="string">"footer footer footer"</span> <span class="number">25px</span> [row2-end]</span><br><span class="line">        / auto <span class="number">50px</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>等价于<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-areas</span>: </span><br><span class="line">    <span class="string">"header header header"</span></span><br><span class="line">    <span class="string">"footer footer footer"</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: [row1-start] <span class="number">1</span>fr [row1-end row2-start] <span class="number">25px</span> [row2-end];</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: auto <span class="number">50px</span> auto;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="子元素-网格项属性"><a href="#子元素-网格项属性" class="headerlink" title="子元素/网格项属性"></a>子元素/网格项属性</h2><p><code>grid-column-start/grid-column-end/grid-row-start/grid-row-end</code> 通过网格线来确定网格项的位置</p>
+<p>可选值：</p>
+<ol>
+<li>网格线的编号或名字</li>
+<li><code>span 数字/名称</code> ：网格项将跨越几个网格轨道/跨越到网格线名称位置</li>
+<li>auto：自动放置，自动跨度，默认1个网格轨道</li>
+</ol>
+<p><code>grid-column/grid-row</code> 上面的简写</p>
+<p>值为：开始的线 结束的线 / <code>span &lt;value&gt;</code></p>
+<p><code>grid-area</code> 为网格项提供一个名字，也可当作以上的简写</p>
+<p>值：name| row-start / column-start / row-end / column-end</p>
+<p><code>justify-self</code> 沿着行对齐网格项，适用于单个网格项中的内容</p>
+<p>可选值： </p>
+<ol>
+<li>start 将网格项对齐到其单元格的左侧起始边缘</li>
+<li>end  对齐到其单元格的右侧</li>
+<li>center 水平居中</li>
+<li><p>stretch 填满单元格的宽度（默认）</p>
+<p><code>align-self</code> 沿着列轴线对齐网格项</p>
+<p>可选值：</p>
+</li>
+<li>start 将网格项对齐到其单元格的顶部起始边缘</li>
+<li>end  对齐到其单元格的底部</li>
+<li>center 垂直居中</li>
+<li>stretch 填满单元格的高度（默认）</li>
+</ol>
+<p><code>place-self</code> 以上两个的简写，第一个为<code>align-self</code></p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://yandayu.github.io">Yan Dayu</a>
+            </p><p>原文链接：<a href="https://yandayu.github.io/2019/05/12/Grid网格布局/">https://yandayu.github.io/2019/05/12/Grid网格布局/</a>
+            </p><p>发表日期：<a href="https://yandayu.github.io/2019/05/12/Grid网格布局/">May 12th 2019, 9:23:51 pm</a>
+            </p><p>更新日期：<a href="https://yandayu.github.io/2019/05/12/Grid网格布局/">May 20th 2019, 2:13:34 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/07/02/React(memo,pureComponent,lazy,Suspense,错误边界)/" title="React(memo,pureComponent,lazy,Suspense,错误边界).">
+                    <div class="nextTitle">React(memo,pureComponent,lazy,Suspense,错误边界).</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/04/17/websocket/" title="WebSocket">
+                    <div class="prevTitle">WebSocket</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1979769816@qq.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/yandayu" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#父元素-网格容器"><span class="toc-number">1.</span> <span class="toc-text">父元素/网格容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素-网格项属性"><span class="toc-number">2.</span> <span class="toc-text">子元素/网格项属性</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 25
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/12</span><a class="archive-post-title" href="/2019/07/12/重绘与回流/">重绘与回流</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href="/2019/07/02/React(memo,pureComponent,lazy,Suspense,错误边界)/">React(memo,pureComponent,lazy,Suspense,错误边界).</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/12</span><a class="archive-post-title" href="/2019/05/12/Grid网格布局/">Grid网格布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href="/2019/04/17/websocket/">WebSocket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/cors/">cors</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/29</span><a class="archive-post-title" href="/2019/01/29/jwt/">jwt</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span><a class="archive-post-title" href="/2019/01/23/typescript/">typescript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href="/2019/01/18/Vuex/">Vuex</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href="/2019/01/18/Vue-store/">Vue-store</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href="/2019/01/16/Vue-组件/">Vue-组件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href="/2019/01/16/Vue-基础语法/">Vue-基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href="/2019/01/16/less/">less</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href="/2019/01/09/使用express写接口/">使用express写接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href="/2019/01/09/使用gulp构建自动压缩刷新的环境/">使用gulp构建自动压缩刷新的环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/Es6/">Es6</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href="/2019/01/02/转-Evevt-Loop-事件循环/">[转]Evevt Loop 事件循环</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/jQuery总结/">jQuery总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href="/2018/12/08/jq要注意的点/">jq要注意的点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href="/2018/12/04/关于属性/">关于属性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href="/2018/12/01/继承/">继承</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href="/2018/12/01/原型和原型链/">原型和原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href="/2018/11/26/flex-box布局/">flex box布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href="/2018/11/26/自定义构造器函数/">自定义构造器函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href="/2018/11/15/转-全局捕获/">[转]全局捕获</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/14</span><a class="archive-post-title" href="/2018/11/14/转-call（），apply（）和bind（）/">[转]call（），apply（）和bind（）</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="react"><span class="iconfont-archer">&#xe606;</span>react</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="es6"><span class="iconfont-archer">&#xe606;</span>es6</span>
+    
+        <span class="sidebar-tag-name" data-tags="grid,css布局"><span class="iconfont-archer">&#xe606;</span>grid,css布局</span>
+    
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
+        <span class="sidebar-tag-name" data-tags="less"><span class="iconfont-archer">&#xe606;</span>less</span>
+    
+        <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
+    
+        <span class="sidebar-tag-name" data-tags="node"><span class="iconfont-archer">&#xe606;</span>node</span>
+    
+        <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
+    
+        <span class="sidebar-tag-name" data-tags="typescript"><span class="iconfont-archer">&#xe606;</span>typescript</span>
+    
+        <span class="sidebar-tag-name" data-tags="cors"><span class="iconfont-archer">&#xe606;</span>cors</span>
+    
+        <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
+    
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="前端"><span class="iconfont-archer">&#xe60a;</span>前端</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Yan Dayu"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
